@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#100b20" name="theme-color"/>
+<title>A Mad Boy’s Life Story ❤️🥀</title>
+<style>
+  :root{
+    --bg:#090714; --panel:rgba(22,17,43,.84); --text:#fff8ff; --muted:#d7cde8;
+    --pink:#ff4fa3; --blue:#4da6ff; --yellow:#ffd34e; --green:#43e6c1; --purple:#a875ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;
+    background:
+      radial-gradient(ellipse at 12% 8%,rgba(168,117,255,.18),transparent 35%),
+      radial-gradient(ellipse at 90% 25%,rgba(255,79,163,.12),transparent 32%),
+      radial-gradient(ellipse at 15% 70%,rgba(77,166,255,.12),transparent 30%), var(--bg);
+    overflow-x:hidden; line-height:1.8;
+  }
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;z-index:-1;
+    background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px}
+  .progress{height:4px;position:fixed;top:0;left:0;width:0;z-index:100;background:linear-gradient(90deg,#4285f4,#34a853,#fbbc05,#ea4335,#a855f7);box-shadow:0 0 14px #ff4fa3}
+  .hero{min-height:90vh;display:grid;place-items:center;text-align:center;padding:88px 20px 60px;position:relative}
+  .hero-inner{max-width:900px}
+  .eyebrow{letter-spacing:.18em;text-transform:uppercase;color:#e3c9ff;font-size:.78rem;font-weight:800}
+  h1{font-size:clamp(2.5rem,8vw,5.8rem);line-height:1.08;margin:20px 0 18px;letter-spacing:-.04em;
+    background:linear-gradient(110deg,#fff,#ffabd7 25%,#bca5ff 52%,#8de9ff 75%,#fff);background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+  @keyframes shine{to{background-position:220% center}}
+  .subtitle{font-size:clamp(1.05rem,3vw,1.5rem);color:#ffe5f2;margin:0 auto 14px}
+  .tagline{max-width:700px;margin:20px auto;color:var(--muted);font-size:1.03rem}
+  .hero-heart{font-size:2.6rem;filter:drop-shadow(0 0 18px #ff4fa3);animation:heartbeat 1.8s infinite}
+  @keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.15)}24%{transform:scale(1)}}
+  .scroll-cue{margin-top:30px;display:inline-flex;align-items:center;gap:10px;color:#e9ddff;font-size:.9rem;opacity:.9}
+  .scroll-cue span{display:inline-block;animation:bob 1.4s infinite}
+  @keyframes bob{50%{transform:translateY(7px)}}
+  .story{max-width:1000px;margin:0 auto;padding:0 20px 80px;position:relative}
+  .story:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);
+    background:linear-gradient(180deg,transparent,#ff4fa3,#a875ff,#4da6ff,#43e6c1,#ffd34e,transparent);opacity:.5}
+  .card{width:calc(50% - 36px);margin:0 0 34px;position:relative;isolation:isolate;
+    border-radius:24px;padding:clamp(20px,3vw,32px);background:var(--panel);backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 15px 45px rgba(0,0,0,.28);
+    opacity:0;transform:translateX(-70px) translateY(24px) scale(.97);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.2,1);
+  }
+  .card:nth-child(even){margin-left:calc(50% + 36px);transform:translateX(70px) translateY(24px) scale(.97)}
+  .card.visible{opacity:1;transform:translateX(0) translateY(0) scale(1)}
+  .card:before{content:"";position:absolute;inset:-2px;border-radius:26px;padding:2px;z-index:-2;
+    background:conic-gradient(from var(--angle,0deg),#4285f4,#34a853,#fbbc05,#ea4335,#a855f7,#4285f4);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    animation:spin 6s linear infinite;opacity:.9}
+  .card:after{content:"";position:absolute;inset:0;border-radius:24px;z-index:-1;pointer-events:none;
+    background:radial-gradient(circle at 0 0,rgba(255,79,163,.15),transparent 38%),radial-gradient(circle at 100% 100%,rgba(77,166,255,.14),transparent 38%)}
+  @property --angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+  @keyframes spin{to{--angle:360deg}}
+  .card:focus-within{outline:2px solid #fff}
+  .card:before{filter:drop-shadow(0 0 8px rgba(255,79,163,.35))}
+  .number{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;
+    background:linear-gradient(135deg,rgba(255,79,163,.24),rgba(77,166,255,.22));border:1px solid rgba(255,255,255,.2);
+    color:#fff;font-weight:900;margin-bottom:12px;box-shadow:0 0 20px rgba(168,117,255,.2)}
+  h2{font-size:clamp(1.22rem,2.7vw,1.7rem);line-height:1.35;margin:0 0 18px;color:#fff}
+  .card p{margin:0 0 14px;color:#f0e8fb}
+  .card p:last-child{margin-bottom:0}
+  strong{color:#ffd9ed}
+  .quote{border-left:3px solid var(--pink);padding:12px 16px;margin:18px 0;border-radius:0 12px 12px 0;background:rgba(255,79,163,.08);color:#ffe7f3;font-weight:650}
+  .funny{color:#d9f4ff!important}
+  .closing{width:100%;text-align:center;margin-top:56px;padding:clamp(25px,5vw,55px)}
+  .closing h2{font-size:clamp(1.8rem,5vw,3rem)}
+  .closing .question{font-size:clamp(1.15rem,3vw,1.55rem);color:#ffe3f1;font-weight:750;margin:24px auto;max-width:720px}
+  .footer{text-align:center;color:#a99cbd;padding:0 20px 45px;font-size:.9rem}
+  .top-btn{position:fixed;right:17px;bottom:18px;border:1px solid #ffffff40;background:#201637;color:white;border-radius:50%;width:46px;height:46px;font-size:1.2rem;cursor:pointer;box-shadow:0 0 22px #a875ff55;z-index:20;opacity:0;pointer-events:none;transition:.25s}
+  .top-btn.show{opacity:1;pointer-events:auto}
+  .sparkle{position:absolute;color:#ffb9df;animation:float 5s ease-in-out infinite;opacity:.7}
+  .sparkle.s1{top:17%;left:10%;font-size:1.5rem}.sparkle.s2{top:28%;right:12%;font-size:1.2rem;animation-delay:1s}.sparkle.s3{bottom:18%;left:16%;font-size:1rem;animation-delay:2s}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(18deg)}}
+  @media(max-width:760px){
+    .hero{min-height:82vh}
+    .story:before{left:15px}
+    .card,.card:nth-child(even){width:calc(100% - 34px);margin-left:34px;margin-right:0}
+    .card{transform:translateX(-42px) translateY(20px) scale(.98)}
+    .card:nth-child(even){transform:translateX(42px) translateY(20px) scale(.98)}
+    .card.visible,.card:nth-child(even).visible{transform:translateX(0) translateY(0) scale(1)}
+  }
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+  /* Password protection layer */
+  body.locked { overflow: hidden; }
+  #passwordGate {
+    position: fixed; inset: 0; z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+    padding: 22px;
+    background:
+      radial-gradient(ellipse at 12% 8%,rgba(168,117,255,.25),transparent 35%),
+      radial-gradient(ellipse at 90% 25%,rgba(255,79,163,.20),transparent 32%),
+      #090714;
+    color: #fff8ff;
+  }
+  #passwordGate .password-box {
+    width: min(100%, 390px); padding: 34px 26px; text-align: center;
+    border: 1px solid rgba(255,255,255,.18); border-radius: 24px;
+    background: rgba(22,17,43,.94); backdrop-filter: blur(12px);
+    box-shadow: 0 15px 55px rgba(0,0,0,.45), 0 0 28px rgba(168,117,255,.18);
+  }
+  #passwordGate .lock-icon {
+    font-size: 3rem; margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px #ff4fa3);
+  }
+  #passwordGate h2 { margin: 0 0 8px; font-size: 1.65rem; color: #fff; }
+  #passwordGate p { color: #d7cde8; margin: 0 0 20px; }
+  #passwordGate input {
+    width: 100%; padding: 14px 15px; margin: 0 0 14px;
+    border: 1px solid rgba(255,255,255,.25); border-radius: 12px;
+    background: rgba(9,7,20,.8); color: #fff; font-size: 1rem;
+    outline: none;
+  }
+  #passwordGate input:focus { border-color: #ff4fa3; box-shadow: 0 0 0 3px #ff4fa333; }
+  #passwordGate button {
+    width: 100%; padding: 13px 16px; border: 0; border-radius: 12px;
+    color: #fff; font-size: 1rem; font-weight: 750; cursor: pointer;
+    background: linear-gradient(135deg,#ff4fa3,#a875ff,#4da6ff);
+    box-shadow: 0 5px 20px #a875ff33; transition: transform .2s, filter .2s;
+  }
+  #passwordGate button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+  #passwordError { min-height: 1.5em; margin-top: 13px !important; margin-bottom: 0 !important; color: #ff9aa9 !important; font-size: .92rem; }
+
+
+  /* Added floating background decorations; original website content remains unchanged */
+  #floatingDecor{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;contain:strict}
+  #floatingDecor .float-item{position:absolute;bottom:-12vh;left:var(--x);font-size:var(--size);opacity:var(--opacity);
+    filter:drop-shadow(0 0 8px currentColor);animation:decorFloat var(--duration) linear var(--delay) infinite;
+    will-change:transform,opacity;user-select:none}
+  @keyframes decorFloat{
+    0%{transform:translate3d(0,0,0) rotate(0deg) scale(.7);opacity:0}
+    8%{opacity:var(--opacity)}
+    50%{transform:translate3d(var(--drift),-58vh,0) rotate(180deg) scale(1)}
+    92%{opacity:var(--opacity)}
+    100%{transform:translate3d(calc(var(--drift) * -0.55),-118vh,0) rotate(360deg) scale(.8);opacity:0}
+  }
+  #protectedContent{position:relative}
+  @media(prefers-reduced-motion:reduce){#floatingDecor .float-item{animation:none;display:none}}
+
+</style>
+</head>
+<body class="locked">
+<div id="passwordGate">
+<div class="password-box">
+<div aria-hidden="true" class="lock-icon">🔐</div>
+<h2>Private Story</h2>
+<p>Enter the password to read the story.</p>
+<form id="passwordForm">
+<input aria-label="पासवर्ड" autocomplete="current-password" id="passwordInput" placeholder="पासवर्ड दर्ज करें" required="" type="password"/>
+<button type="submit">Unlock the story 🔓</button>
+</form>
+<p aria-live="polite" id="passwordError" role="alert"></p>
+</div>
+</div>
+<div id="protectedContent" style="display:none">
+<div aria-hidden="true" id="floatingDecor"></div>
+<div class="progress" id="progress"></div>
+<header class="hero">
+<span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">♡</span>
+<div class="hero-inner">
+<div class="eyebrow">A story told from the heart</div>
+<div class="hero-heart">❤️🥀</div>
+<h1>A Life Story<br/>of a Mad Boy</h1>
+<!-- <p class="subtitle">An Incomplete Love Story of a Mad Boy</p> -->
+<!-- <p class="tagline">“A love story that ended before it even began… but his heart says the story isn’t over yet!”</p> -->
+<!-- <p class="tagline">A story with more silence than confession… Java’s static keyword changed my whole world.</p> -->
+<a class="scroll-cue" href="#story" style="text-decoration:none">Scroll down to read the story <span>↓</span></a>
+</div>
+</header>
+<main class="story" id="story">
+<article class="card"><div class="number">01</div>
+  <h2><i>No need to read...</i></h2>
+  <!-- <h2>The First Feelings That Began in 7th Grade 💔</h2> -->
+<!-- <p>My story began in 7th grade. At that age, I didn’t even know what love meant. Liking someone, looking at them, thinking about them—perhaps that was my first feeling.</p>
+<p>When I reached 12th grade, I learned that she had gotten married. Since she didn’t have a phone, I found out about three months later. I had so many feelings in my heart, but no words to express them.</p>
+<p>After that, I decided to build my career first and get my life in order. I wanted to stay away from love. Little did I know that the name Anandhi would later enter my life and that Java’s static keyword would shake the walls I had built! 😂❤️</p>
+<div class="quote">“First, I’ll stand on my own feet. I’ll stay away from all this.”</div> -->
+</article>
+<article class="card"><div class="number">02</div>
+  <h2><i>No need to read...</i></h2>
+  <!-- <h2>The Four-and-a-Half-Year “Stay Away from Love” Plan 😂</h2>
+<p>After 12th grade, I took my decision seriously. Three years of college, one gap year, and four months of Ignite training—in total, I stayed away from love for four and a half years.</p> -->
+<!-- <p>I had lots of friends; I talked and enjoyed myself with them. But when it came to girls, I was different. Whenever a girl came to talk to me, my confidence would go on vacation.</p>
+<p>My heart would race, my body would tense up, and a hundred questions would pop into my mind! Even looking at a girl for six to eight seconds felt like a big deal. That’s why I kept my distance and stayed by myself; you may have noticed that during training I always stayed with the guys.</p>
+<div class="quote funny">Heart.java: Heart rate rising · Confidence: 0 · Nervousness: 100% · Mind not responding 😂</div>
+<p>I kept telling myself, “Build your career; don’t try to be a hero!” I thought I had my heart under control. Then training began at Chennai One.</p> -->
+</article>
+<article class="card"><div class="number">03</div>
+  <h2><i>No need to read...</i></h2>
+  <!-- <h2>Java’s Static Keyword and the Biggest Non-Static Moment of My Life ❤️</h2>
+<p>One day at Chennai One, you came up to me and asked about Java’s static keyword. For you, it was just a Java question; inside me, an entire system was running in the background.</p>
+<p>I tried to look normal on the outside, but inside it felt as if the production server had suddenly shut down without warning. Still, I tried to hide my nervousness and answer you.</p>
+<p>That same day, you ate with me in the Chennai One cafeteria. You may have eaten as usual, but inside me, something entirely different was happening.</p>
+<div class="quote funny">“Dude, act normal! She’s just eating; this isn’t a marriage discussion!” 😂</div>
+<p>Little by little, I began to enjoy talking with you, eating together, studying, working on projects, and going out. I never thought I would feel this way about someone again.</p> -->
+</article>
+<article class="card"><div class="number">04</div><h2>When You Went to Siruseri 🥀</h2>
+  <p>What happened with me</p>
+  <p>No need to read because it will hurt you</p>
+<!-- <p>After some time, you went to Siruseri. That’s when I realized how deeply the habit of spending a little time with someone every day can grow. We met and talked less, but I didn’t have the courage to tell you how much I felt your absence.</p>
+<p>My friends understood my feelings. Your photo on the board, your name, my name beside yours—and then everyone laughing! I may still have some of those videos on my phone, although photography wasn’t even allowed inside the office.</p>
+<p>In a group of around 500 people, about 100–150 people from different batches knew about my one-sided love.</p>
+<div class="quote">I told everyone just one thing: “Please don’t tell her anything.” They respected my request.</div>
+<p>Many people knew something about it; only you didn’t. That is the strange part of my story.</p> -->
+</article>
+<article class="card"><div class="number">05</div><h2>Two Lunch Boxes, Two Umbrellas, and Lots of Almonds. why did i use to carry them?</h2>
+  <p>No need to read because it will also hurt you</p>
+<!-- <p>For the first two days in Siruseri, I bought food at the cafeteria. For the next three days, I brought a lunch box with beetroot, chickpeas, grapes, dates, and other things. I also brought an extra lunch box for you, hoping we could eat together one day.</p>
+<p>But you would always leave class early, and I didn’t have the courage to ask you directly. The hope with which I brought the food never came true.</p>
+<p>I carried two umbrellas—one for me and one for you, so you wouldn’t have trouble in the rain. I bought almonds every day too. Since I didn’t have the courage to give them to you directly, I first gave them to friends to pass on, so no one would know I had bought them especially for you.</p>
+<div class="quote funny">Lunch box: eat together. Umbrella: protect you from the rain. Almonds: give them to you with my own hands. Even when you refused, I gave you almonds for a few days; the other two dreams never came true! 😂</div>
+<p>Now, when I think about those things, I smile and feel emotional. They weren’t trivial; they were symbols of feelings I couldn’t put into words.</p> -->
+</article>
+<article class="card"><div class="number">06</div><h2>My Friends—the Real Side Heroes of My Story 😂</h2>
+<!-- <p>A hero can’t do everything alone in a movie. My friends played a big role in my story too. One would make me happy by telling me about you, another would create chances for us to talk, and someone else would write our names and tease me.</p>
+<p>Sometimes it felt as though my friends were working harder on my love story than I was! I was afraid to talk to you, while they were already writing the whole script for the future. 😂</p>
+<p>I’m grateful to them for one thing: they respected my request not to tell you anything. My story contains laughter, courage, and memories that still make me smile.</p> -->
+</article>
+<article class="card"><div class="number">07</div><h2>The Last Day in Chennai; Memories Soaked in Heavy Rain 🌧️🥀</h2>
+<p>The day came when I had to leave Chennai. I was happy to be leaving, but I also had an unfinished feeling in my heart. I called to ask if you were coming. It rained heavily until ten, that night.</p>
+<p>Do you remember how we all partied together on the last day? It poured that day. It felt as if nature itself was trying to keep us from parting. You may remember that day, or you may have forgotten it. Even now, thinking about it brings tears to my eyes. 🤔❤️</p>
+<p>I had to leave early in the morning. The cab was due at five, and I had to start travelling by 5:30. I asked if you were coming, but didn’t call again because I thought you might be tired or busy. I couldn’t meet you on the last day either.</p>
+<p>Sandhya came with me to the station. I had so much on my mind that day, but couldn’t tell anyone. Both handkerchiefs got soaked with tears, and I cried a lot on the train. I didn’t tell you this, but I sent you a message saying “i want to see you again” 💌; you replied.</p>
+<div class="quote funny">“Don’t cry. Whenever u want, come to Chennai, u can come.” That gave me hope that we could meet again. But after that, you greatly reduced your calls and messages, and my heart broke again 💔</div>
+<p>That last day was not just a goodbye; it was also the day I walked away from the little memories I wanted to keep safe in my heart. 🥀</p>
+<p>I left, but a part of me stayed behind in Chennai. That part was you. You may never have known that someone was leaving that city with so many thoughts about you. I said nothing; I took only the memories with me and moved forward.</p>
+</article>
+<article class="card"><div class="number">08</div><h2>Getting Used to Hearing Your Voice and Seeing You 🥹📱❤️</h2>
+  <p>That was also one reason to meet you</p>
+  <p>More about it no need to read because lots of things are there</p>
+<!-- <p>I grew to love hearing your voice and seeing you; then I began to miss them when they weren’t there. Sometimes my heart feels like a fish struggling without water when I can’t hear your voice. This is just a way to describe my feelings; I know it’s my responsibility to take care of my feelings and my life.</p>
+<p>I message or call because talking with you makes me happy. Seeing your face and hearing your voice make my day special. I understand that you have work, responsibilities, and personal time. It isn’t always possible to make time for a call or video call.</p>
+<p>Sometimes I think about telling you everything in my heart and then walking away for good, so nothing remains unsaid. But I don’t want to force you to give any answer. Your time, peace of mind, and wishes matter to me. ❤️</p> -->
+</article>
+<article class="card"><div class="number">09</div><h2>A New Life in Kolkata and an Old Name in My Heart ❤️</h2>
+  <p>Skip this also</p>
+<!-- <p>After arriving in Kolkata, life moved in a new direction. I met new people, made friends, and joined groups. On the outside, life was good—talking with senior colleagues, parties, and trips. Yet sometimes I still felt an emptiness even in a crowd.</p>
+<p>My RMG reporting person, Anandita, is very kind too. She shares necessary updates in advance and tells me which technologies to prepare for. Her name is somewhat similar to Anandhi—my heart has calculated a 70% match! 😂</p>
+<p>A similar name cannot make one person replace another. Anandita has her own place, and Anandhi, you have your own unique place.</p>
+<p>Even when I went to parties or trips with friends, I sometimes thought of you. I would make an excuse to return early and keep the real reason to myself. Some feelings can hide in a crowd, but they’re hard to escape when you’re alone.</p> -->
+</article>
+<article class="card"><div class="number">10</div><h2>The Day Hope Made Me Cry for Eight Hours continuously when Bibas was came here🥀</h2>
+<p>After arriving in Kolkata, I had a small hope that when the last person came from Chennai, you might come with them. I thought I might suddenly get to see you in person one day.</p>
+<p>When that last person (Bibas) arrived, I met them—but you didn’t come. My hope broke that day. You had never promised to come; I had created that expectation myself, and I had to bear the pain of it breaking too.</p>
+<p>I cried continuously for about eight hours that day. I don’t blame you. I was trying to let go of the hope I had quietly nurtured inside myself.</p>
+<p>Sometimes we become emotionally attached not only to a person, but also to the possibility of meeting them someday. Perhaps that happened to me too.</p>
+</article>
+<article class="card"><div class="number">11</div><h2>Even at Home, I Couldn’t Escape the Memories 🏠🥹</h2>
+<p>I thought that going home for a while would change my surroundings, and that being with my family would lessen my thoughts of you and give my mind some rest.</p>
+<p>Last Monday at around eleven at night, tears streamed from both my eyes as I thought of you. My mother asked, “What happened?” I couldn’t tell her anything. I went to sleep without saying a word, but the same thoughts kept running through my mind.</p>
+<p>I thought a change of place would change my mind too, but the memories came home with me. That is the truth of my feelings. Still, I know I must take care of my mind and life. ❤️‍🩹 I hope to recover from this pain over the next 2–3 years,
+   <!-- but because I gave you a place in my heart,  -->
+   I may never forget you for the rest of my life. ❤️</p>
+</article>
+<article class="card"><div class="number">12</div><h2>My Childhood Friend Who Supported Me Through a Difficult Time 🫂</h2>
+<p>After coming to Kolkata, when I had a small accident in the second week of August, I told a childhood friend about you and my emotional state. She is now a nurse. She helped me understand things, made time for me, and listened to me.</p>
+<p>Sometimes she comforted me on video calls even at two in the morning. I was very sad and emotionally affected at that time. She reminded me that taking care of my life, health, and future was important too.</p>
+<p>Her support meant a lot to me. Even after telling her everything, my memories of you didn’t disappear completely. I’m not saying this to diminish her help, but because some feelings take time to understand and work through. </p>
+</article>
+<article class="card"><div class="number">13</div><h2>The Accident Scar Is Still on My Left Hand 🩹</h2>
+<p>After coming to Kolkata, one day in the second week of August, I was on my way to the office. As usual, your face and name were on my mind. I didn’t notice a stone in my path and fell. I injured my left hand, and the scar is still there.</p>
+<p>It happened because I wasn’t paying attention, and I don’t hold you responsible. When I see the scar, I remember that time when my attention was on you even while I was walking.</p>
+<p>Thinking of you is my feeling; taking care of my body, life, and future is my responsibility. I’m trying to keep that in mind. ❤️‍🩹</p>
+</article>
+<article class="card"><div class="number">14</div>
+  <h2><i>No need to read...</i></h2>
+  <!-- <h2>Anandhi and Anjali—Two Names That Seemed Similar 💭</h2> -->
+<!-- <p>The girl I began to like in 7th grade was named Anjali. Your name is Anandhi. The names seem a little similar. You are connected to different periods of my life, and both memories carry a sense of distance.</p>
+<p>I’m not saying the two of you are alike. You have your own identity, and she had her own life. The slight similarity between your names created a strange connection in my mind between the past and the present.</p>
+<p>Since becoming closer to you, old memories sometimes return too. But I see you as your own person—you are Anandhi, and your story belongs to you. ❤️</p> -->
+</article>
+<article class="card"><div class="number">15</div><h2>I Invited You to Every Happy Moment Like a Family Friend 🫂🌸</h2>
+<p>I felt close to you like a family friend, and I still feel that affection. When I think of visiting a sacred place, I want to invite you too. When there’s a party, festival, or function, my heart wishes you could be there.</p>
+<p>When you weren’t there, I would make an excuse and leave the party early. I’d think, “This moment would have been even better if you were here too.” Sometimes I would leave without making any memories, lost in that thought.</p>
+<p>There isn’t a day when I don’t think of you, and many times my eyes fill with tears. I’m not saying this to blame you or make you responsible. I only want to explain why I wish to include you in my happiness. </p>
+<p>Sharing the joy of a sacred place or festival is one way to express affection. Whether you come or not is up to your wishes and convenience, and I respect that. 🙏</p>
+<div class="quote">“I invited you to Jagannath Puri and to see Kolkata’s Durga Puja because those places and moments are special to me. When I visit a beautiful or sacred place, I wish I could share that experience with you too.”</div>
+<div class="quote">“My invitation doesn’t mean you have to come. I simply wish you could have a place in my happiness. I know you have your own work, responsibilities, plans, and wishes.”</div>
+<div class="quote">“Sometimes, when you aren’t at a party, I don’t feel connected to it and make an excuse to leave. Later, I wonder if I should have stayed and made memories with my friends. I’m learning that even while missing someone, it’s important to enjoy life’s good moments. 🌸”</div>
+<div class="quote funny">“Voice of the heart: Dude, first ask if she has time! Booking tickets in your imagination for every trip won’t make them real!” 😂❤️</div>
+</article>
+<article class="card"><div class="number">16</div><h2>Friends, Work, and a Similar-Sounding Name in Kolkata 🙂</h2>
+<p>I have many friends in Kolkata. We go out together, attend parties, and enjoy our time. I want to grow in my career and do good things for my family. Even while smiling and talking on the outside, I think of you at certain moments.</p>
+<p>My RMG reporting person, Anandita, treats me well. She shares updates and gives advice about technologies, and sometimes helps with attendance matters too. Her name seems about 70% similar to “Anandhi,” so even at work, hearing her name reminds me of you.</p>
+<p>But Anandita and you are different people. I’m not comparing anyone with anyone else; this is simply a memory that the similarity in names brings to mind.</p>
+</article>
+<article class="card"><div class="number">17</div><h2>From Bihar to Madurai—Two Cities, Two Languages, One Wish ❤️</h2>
+<p>I’m from Bihar, and you’re from Madurai in Tamil Nadu. Our cities, languages, and cultures may be different, but when we talk, English becomes a bridge between us.</p>
+<div class="quote">I think my English communication has improved through talking with you. You may have helped me without realizing it. Along with my affection for you, I have good memories and have learned a few things too. I want to talk with you every day to improve my communication as well.</div>
+<div class="quote">“There was a time when I hesitated even to talk to girls. Today, I’m trying to share so many things in my heart with you. This change means a lot to me.”</div>
+<!-- <div class="quote">Since you came into my life, I’ve discovered the part of me that wants to spend time with someone, finds happiness in little things, and sees someone’s presence as a special part of the day.”</div> -->
+</article>
+<article class="card"><div class="number">18</div><h2>The Rameswaram Trip and My Unfulfilled Wish to Visit Madurai’s Meenakshi Temple 🙏🌸</h2>
+<p>When returning after visiting Rameswaram, I had a ticket as far as Man-Madurai and planned to go from there to Madurai. I wanted to visit Meenakshi Amman Temple in Madurai, but due to lack of time and exhaustion, I couldn’t go. That wish remained unfulfilled.</p>
+<p>After we became friends, Madurai felt closer to me because you are from there. I thought I might visit again one day and pray at Meenakshi Amman Temple. But later, since we were in different places, meeting wasn’t easy.</p>
+<div class="quote">“If you feel comfortable and it’s appropriate, try sending me a few memories related to Meenakshi Amman Temple and a small photo of yourself. I’d like to keep them as a keepsake to remember you by. 🙏❤️”</div>
+<div class="quote">“I want to keep it as a keepsake because it would be a small reminder of our friendship and help us remember one another.”<i>But please don’t feel any obligation or pressure. It’s completely fine if you can’t or don’t want to. Your wishes and comfort matter most.</i> 🌷”</div>
+</article>
+<article class="card"><div class="number">19</div><h2>You Appear in My Dreams Too 🥀</h2>
+<p>Sometimes you appear in my dreams too. I imagine us sitting and talking together or going somewhere. In dreams, everything is easy -&gt; no distance, no worries about time, and no need to rush away.</p>
+<p>When I open my eyes in the morning, reality is waiting. You have your life, and I have mine. There is distance, responsibility, and limited time between us.</p>
+<div class="quote funny">“Dude, you once found it hard even to talk to a girl for six seconds. Now you’re planning an entire trip in your dreams!” 😂</div>
+<p>Dreaming about something and expecting another person to make it happen are two different things. You have your own life, dreams, and wishes. I want to share my feelings, while giving your feelings equal importance.</p>
+</article>
+<article class="card"><div class="number">20</div><h2>A Strange Fantasy About the Future 👶🌸</h2>
+<p>Sometimes a distant, movie-like fantasy comes to mind. What if we never get to meet in our lives? I’ve imagined there might be another way for us to become connected...... </p>
+<p>I have an idea that could come true after 25-28 years, as a friends, But you can skip it if you want.</p>
+<!-- <div class="quote funny">“After some time, you and I will get married and both have children. If we keep in touch, we’ll send our children to the same school and university; 25–28 years later, they’ll marry each other. That way, we’ll end up together too!” 😂</div>
+<p>This is only an emotional fantasy that came to my mind, and it may or may not be possible. But children have their own lives and decisions, and they must have the full right to choose their future as they wish.</p>
+<p>I’m sharing this because distant fantasies sometimes come to my mind. I now understand that real relationships and futures are built not just on imagination, but on the free choice and consent of both people. 🌷</p> -->
+<div class="quote funny">“<strong>Beyond Expectation</strong></div>
+</article>
+<article class="card"><div class="number">21</div><h2>Why Do I Call You? 📱❤️</h2>
+<p>You may have wondered why I message or call you. The answer is simple—I like hearing your voice and seeing you. Even a short conversation can make my day happier.</p>
+<p>I understand that it isn’t possible to talk all the time. You have work, responsibilities, and need time for yourself. Sometimes you may be able to reply to a message but not have time for a call. They aren’t the same thing.</p>
+<p>I don’t consider your time something I’m entitled to. Wanting to hear your voice is my feeling, but your time and peace of mind are just as important.</p>
+</article>
+<article class="card"><div class="number">22</div><h2>Why Am I Telling You All This? </h2>
+  <p><i>No need to read...</i></p>
+<!-- <p>I kept my feelings to myself for a long time. I felt I should honestly share some things so that the questions in my heart wouldn’t remain unspoken. I don’t know whether you see me only as a friend or would like to know me better. I don’t want to decide what you feel through my imagination.</p>
+<p>After reading this, I’d be happy if you asked questions and openly shared your thoughts. I’d like you to ask about my story, try to understand some things, and share your side too. But if you don’t want to respond, you don’t have to answer every question—I’ll respect your comfort. ❤️</p>
+<p>I didn’t write this to make you emotional or to get a particular answer. If you feel only friendship, I’ll understand and respect that. If you want to know me better, we can talk honestly.</p> -->
+</article>
+<article class="card"><div class="number">23</div><h2>A Boy Who Smiles Outside; an Unfulfilled Story Within ...</h2>
+  <p><i>No need to read...</i></p>
+<!-- <p>I have many friends in Kolkata. I go out with them, laugh, attend parties, and experience different things in life. I want to learn at work, grow in my career, and do good things for my family.</p>
+<p>Even in the middle of all this, I think of you. In happy moments, I wonder, “I wish I could have shared this time with her too.” When I visit certain places, I think it would have been nice if you were there.</p>
+<p>I’m not telling you this story to make you responsible for my tears. I simply want you to understand the story from my side too. You may have seen my silence and ordinary conversations, but you may not know the whole story behind them.</p> -->
+</article>
+<article class="card"><div class="number">24</div><h2>Why Am I Telling You All This Today? </h2>
+  <><i>No need to read...</i></p>
+<!-- <p>I don’t want to leave my feelings unexpressed forever. I don’t know whether you see me as a friend, someone special, or something else. I don’t want to write your answer for you through my imagination.</p>
+<p>For years, I built a story in my mind. It contained happiness, unfulfilled dreams, and meetings that never happened in real life. Now, instead of imagining things, I want to understand what you truly think.</p>
+<p>If you feel only friendship, I’ll understand and respect that. If you’d like to get to know me better too, we can talk about it honestly.</p>
+<div class="quote">Your answer should come from your heart—not from the pressure of my feelings.</div>
+<p>A relationship is truly beautiful only when both people choose it willingly.</p> -->
+</article>
+<article class="card"><div class="number">25</div><h2>Is There Room for at Least One Meeting in Our Story? 🌸</h2>
+  <p><i>Now it's ended...</i></p>
+<!-- <p>I’m in Kolkata and currently reporting to RMG. Since I haven’t received a project yet, I have some time. If you can’t travel, I can come to you. If it is convenient and you’d like to, I would love to meet you in person once.</p>
+<div class="quote">During the last days of October (on a weekend), especially <strong>on October 29, 2026, I could come to Chennai to talk with you and see you</strong>. If it works for you, we could meet that day. Whether for one hour, two hours, or a whole day depends on what is convenient for both of us.</div>
+<div class="quote">If October doesn’t work, I have <strong>three consecutive days off on December 25, 26, and 27, 2026</strong>. But I don’t know whether I’ll be allocated to a project by December; if I am, meeting you may be difficult. That’s why October may be the better opportunity.</div>
+<div class="quote">This meeting is possible only if you want it too. Whether you’re busy, not ready, or don’t want to meet, I’ll respect your decision.</div>
+<div class="quote">I’m eagerly waiting for your reply.</div>
+</article>
+<article class="card"><div class="number">26</div><h2>There Was a Time When I Was Very Happy</h2>
+<div class="quote">I was very happy when you were taking the Karat exam. I believed you would clear it, but I didn’t know that a few days later we would be separated for good.</div>
+<div class="quote">I ate that day only after seeing the smile on your face, because the same question had appeared in your exam.</div> -->
+</article>
+<article class="card closing"><div class="number">27</div><h2>Goodbye, or Shall We Meet Again? ❤️🥀</h2>
+  <p><i>Now it's already ended...</i></p>
+<!-- <p>Anandhi, I don’t know what you’ll think after reading this story. Some parts may feel sweet, some may make you laugh, and others may touch your heart. You might even think this boy is a little crazy for putting everything—from a Java question to two lunch boxes, two umbrellas, and almonds—into a love story! 😂</p>
+<p>I didn’t write this story to make you emotional or to get a particular answer. I wrote it because I couldn’t properly express so many things that were in my heart.</p>
+<p>I don’t know what will happen in the future. We could meet once and then move on with our lives, or meet from time to time and make our friendship more beautiful. If we both have similar feelings, the story could take a new turn—but only if we both want that.</p>
+<p class="question">Is there still room for at least one meeting in our story?</p>
+<p class="question">Or could we meet many times in the future?</p>
+<p>Do you see me only as a friend, or would you like to know me better? Whatever your answer is, I want to hear it honestly. I’ll respect your feelings even if they’re different from mine.</p>
+<p>I don’t want this story to become a burden for you. I want to hear your answer to the question I’ve carried in my heart for so long, leave imagination behind, and understand the truth.</p>
+<div class="quote">A boy who tried to keep his heart closed for four and a half years; who could explain Java’s static keyword but couldn’t express his own feelings; who brought lunch boxes, an umbrella, and almonds but couldn’t find the courage to give them to you. ❤️</div> -->
+<!-- <p>This is my story—my memories, mistakes, laughter, tears, and unfulfilled dreams. I don’t want the next page to be written by my imagination alone; if you wish, there can be room for your thoughts too.</p>
+<p>The story began from my side, but what happens next should be decided by what we both want.</p>
+<p style="font-size:1.2rem;text-align:center;margin-top:24px">I’ll be waiting for your reply.<br/>Be happy, take good care of yourself, and keep moving forward. ❤️🥀</p> -->
+</article>
+
+<article class="card"><div class="number">28</div><h2>Once Again ✨⭐💗🌟💫</h2>
+<div class="quote">Stay happy, take care of yourself, and keep moving forward. ❤️🥹 May you always have good health, a beautiful future, and a loving family filled with happiness. 🤍🫶🏻 Whether our story continues or ends here, my prayers and best wishes will always be with you. And somewhere in my heart❤️, I’ll always carry a little hope that life might bring us together again someday. 🥹❤️‍🩹✨</div>
+<div class="quote">27 Oct 2026,<i> Balmiki</i></div>
+</article>
+
+<article class="card"><div class="number">29</div><h2>Between hope and Acceptance</h2>
+  <p>💔 When Efforts Go Unnoticed — For your feelings about travelling over 3,200 km while she cannot spare even 2–3 hours.</p>
+<div class="quote">I am willing to travel for 4–5 days just for one meeting with you, covering a distance of more than 3,200 km to reach your city. Yet, you say that you cannot spare even 2–3 hours to meet me.
+
+Honestly, I feel that it’s not a lack of time, but a lack of interest. Because when someone truly wants to meet you, they find a way, even in the busiest of schedules. 💔 </div>
+
+<p>❤️ A Heartfelt Appreciation — For appreciating her humility, kindness, and down-to-earth nature.</p>
+<div class="quote">But even then, you always take the time to answer all my stupied questions without your interest. That reflects your humility, your good character, and the fact that you are a genuinely down-to-earth person. I truly appreciate this quality of yours. ❤️</div>
+
+<p>🍂 Leaving the Door Open, Letting Go of Expectations — For expressing your fading hope while leaving the decision to contact or meet you in her hands.</p>
+<div class="quote">Now, my hope has almost reached zero. So, I think it’s time for me to stop expecting a meeting that may never happen.
+
+But if someday you genuinely feel like meeting me, you can always message or call me from your side. I’ll leave that decision entirely up to you. ❤️</div>
+</article>
+<article class="card"><div class="number">30</div><h2>Take Good Care of Yourself 💫</h2>
+<div class="quote">I Am Happy ✨</div>
+<div class="quote">Waiting for Your Reply... 🕒</div>
+<div class="quote">Focus mainly on page 18 because it will help me to remember you always</div>
+</article>
+<article class="card"><div class="number">31</div><h2>The Hardest Thing to Say 🥹</h2>
+<div class="quote"><i>Goodbye, and I'll miss you a lot. 🥺❤️‍🩹 Even if, some connections stay in the heart 💖💕forever. ♾️🥀👋 😌 👋 </i></div>
+</article>
+</main>
+<footer class="footer">A story from the heart · Made with ❤️, memories &amp; a little madness.</footer>
+<button aria-label="Back to top" class="top-btn" id="topBtn" title="ऊपर जाएँ">↑</button>
+<script>
+
+  // Password gate: hardcoded password requested by the site owner.
+  const correctPassword = "AB";
+  const passwordForm = document.getElementById('passwordForm');
+  const passwordInput = document.getElementById('passwordInput');
+  const passwordGate = document.getElementById('passwordGate');
+  const protectedContent = document.getElementById('protectedContent');
+  const passwordError = document.getElementById('passwordError');
+
+  passwordForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (passwordInput.value === correctPassword) {
+      passwordGate.style.display = 'none';
+      protectedContent.style.display = 'block';
+      document.body.classList.remove('locked');
+      passwordError.textContent = '';
+      passwordInput.value = '';
+      window.dispatchEvent(new Event('scroll'));
+    } else {
+      passwordError.textContent = '❌ Incorrect password! Please try again.';
+      passwordInput.value = '';
+      passwordInput.focus();
+    }
+  });
+
+
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -35px 0px'});
+  cards.forEach(card => observer.observe(card));
+
+  const progress = document.getElementById('progress');
+  const topBtn = document.getElementById('topBtn');
+  function onScroll(){
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progress.style.width = percent + '%';
+    topBtn.classList.toggle('show', window.scrollY > 500);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Added decorative floating stars, roses, and hearts. Existing behavior is untouched.
+  (function addFloatingDecorations(){
+    const decor = document.getElementById('floatingDecor');
+    if (!decor) return;
+    const symbols = [
+      {char:'✦', color:'#ffe88a'}, {char:'✧', color:'#c9a7ff'},
+      {char:'★', color:'#fff2b0'}, {char:'☆', color:'#9eeaff'},
+      {char:'🌟', color:'#ffe88a'}, {char:'✨', color:'#fff0c2'},
+      {char:'🌹', color:'#ff8eb7'}, {char:'🥀', color:'#d9a0d0'},
+      {char:'🌷', color:'#ff9ccf'}, {char:'🌺', color:'#ff7fa8'},
+      {char:'❤️', color:'#ff5f91'}, {char:'💖', color:'#ff8ac2'},
+      {char:'💕', color:'#ffa6d5'}, {char:'💗', color:'#ff6fae'},
+      {char:'💓', color:'#ff7b9c'}, {char:'💘', color:'#ff8dc8'},
+      {char:'♡', color:'#ffc6e5'}, {char:'♥', color:'#ff6b9e'}
+    ];
+    const count = window.matchMedia('(max-width: 760px)').matches ? 30 : 48;
+    for (let i = 0; i < count; i++) {
+      const item = document.createElement('span');
+      const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      item.className = 'float-item';
+      item.textContent = symbol.char;
+      item.style.color = symbol.color;
+      item.style.setProperty('--x', (Math.random() * 100) + 'vw');
+      item.style.setProperty('--size', (0.8 + Math.random() * 1.35) + 'rem');
+      item.style.setProperty('--opacity', (0.24 + Math.random() * 0.48).toFixed(2));
+      item.style.setProperty('--duration', (13 + Math.random() * 23) + 's');
+      item.style.setProperty('--delay', (-Math.random() * 35) + 's');
+      item.style.setProperty('--drift', ((Math.random() - 0.5) * 22) + 'vw');
+      decor.appendChild(item);
+    }
+  })();
+
+</script>
+</div>
+</body>
+</html>
